@@ -24,7 +24,17 @@
 
 ## Description
 
-Orders app. Acceptes orders and returns aggregates. 
+Orders app. Acceptes orders, returns existing ones and provide three custom endpoints with aggregated data.
+
+### Comment:
+``/most-often-bought-yesterday`` uses aggregates. While it could have been done using the same technique as other two endpoints it was deliberate action to present different approach.
+
+### Without time constraint the following refactor/modify/add would be desirable:
+- Authentication app (JWT tokens). Separate microservice.
+- Ingestor. To fill up the DB on start. 
+- Queues with Kafka or RabittMQ.
+- Full test coverage.
+- Caching for even better response times.
 
 
 ## Running the app with docker
