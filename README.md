@@ -1,6 +1,10 @@
+
+<h1 align="center">Orders app</h1>
+<br/>
+
 ## Description
 
-Orders app. Acceptes orders, returns existing ones and provide three custom endpoints with aggregated data.
+Simple application which acceptes orders, returns existing ones and provide three custom endpoints with aggregated data.
 
 ### Comment:
 ``/most-often-bought-yesterday`` uses aggregates. While it could have been done using the same technique as other two endpoints it was deliberate action to present different approach.
