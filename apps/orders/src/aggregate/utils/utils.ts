@@ -42,5 +42,8 @@ export const mostOftenBoughtProductsFromYesterdayQuerry = (): any => {
         product_id: '$_id',
       },
     },
+    {
+      $unset: '_id',
+    },
   ];
 };
