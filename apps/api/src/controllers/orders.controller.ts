@@ -17,9 +17,9 @@ export class OrdersController {
     description: 'The record has been successfully created.',
     type: CreateOrderRequest,
   })
-  async createOrder(@Body() request: CreateOrderRequest) {
-    await this.aggregateService.createAggregateEntry(request);
-    return await this.ordersService.createOrder(request);
+  createOrder(@Body() request: CreateOrderRequest) {
+    this.aggregateService.createAggregateEntry(request);
+    return this.ordersService.createOrder(request);
   }
 
   @Get()
@@ -28,7 +28,7 @@ export class OrdersController {
     description: 'The record has been successfully created.',
     type: [CreateOrderRequest],
   })
-  async getOrders() {
-    return await this.ordersService.getOrders();
+  getOrders() {
+    return this.ordersService.getOrders();
   }
 }

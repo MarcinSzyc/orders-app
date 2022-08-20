@@ -9,7 +9,7 @@ export class OrdersController {
 
   @MessagePattern({ role: 'order', cmd: 'create' })
   async createOrder(request: CreateOrderRequest) {
-    return this.ordersService.createOrder(request);
+    return await this.ordersService.createOrder(request);
   }
 
   @MessagePattern({ role: 'order', cmd: 'get' })

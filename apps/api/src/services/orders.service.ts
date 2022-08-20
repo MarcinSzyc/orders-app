@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class OrdersService {
@@ -8,17 +9,14 @@ export class OrdersService {
     private readonly ordersClientService: ClientProxy,
   ) {}
 
-  async createOrder(request) {
+  createOrder(request): Observable<number> {
     return this.ordersClientService.send(
       { role: 'order', cmd: 'create' },
       request,
     );
   }
 
-  async getOrders() {
-    return await this.ordersClientService.send(
-      { role: 'order', cmd: 'get' },
-      {},
-    );
+  getOrders(): Observable<number> {
+    return this.ordersClientService.send({ role: 'order', cmd: 'get' }, {});
   }
 }

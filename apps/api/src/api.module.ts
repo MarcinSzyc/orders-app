@@ -16,6 +16,7 @@ import { AggregateService } from './services/aggregate.service';
         ORDERS_MICROSERVICE_PORT: Joi.number().required(),
         AGGREGATE_MICROSERVICE_HOST: Joi.string().required(),
         AGGREGATE_MICROSERVICE_PORT: Joi.number().required(),
+        PORT: Joi.number().required(),
       }),
       envFilePath: './apps/api/.env',
     }),
