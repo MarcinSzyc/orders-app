@@ -40,6 +40,24 @@ services:
     ports:
       - '3001:3001'
 
+  aggregate:
+    build:
+      context: .
+      dockerfile: ./apps/aggregate/Dockerfile
+      target: development
+    command: yarn start:dev aggregate
+    env_file:
+      - ./apps/aggregate/.env
+    depends_on:
+      - mongodb-primary
+      - mongodb-secondary
+      - mongodb-arbiter
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3002:3002'
+
   mongodb-primary:
     image: docker.io/bitnami/mongodb:5.0
     environment:

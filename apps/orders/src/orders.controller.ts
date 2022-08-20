@@ -1,7 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { OrdersService } from './orders.service';
-import { CreateOrderRequest } from './dto/create-order.request';
-import { ApiResponse } from '@nestjs/swagger';
+import { CreateOrderRequest } from '../../../libs/common/src/dto/create-order.request';
 import { MessagePattern } from '@nestjs/microservices';
 
 @Controller()

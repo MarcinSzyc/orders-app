@@ -10,8 +10,8 @@ import { Model } from 'mongoose';
 import {
   Aggregate,
   AggregateDocument,
-} from './aggregate/schemas/aggregate.schema';
-import { AggregateRepository } from './aggregate/aggregate.repository';
+} from '../../aggregate/src/schemas/aggregate.schema';
+import { AggregateRepository } from '../../aggregate/src/aggregate.repository';
 import { getOrderMock } from './mocks/order.mock';
 import { getAggregateMock } from './mocks/aggregate.mock';
 

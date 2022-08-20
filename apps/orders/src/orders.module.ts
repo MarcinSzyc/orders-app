@@ -8,8 +8,6 @@ import { OrdersService } from './orders.service';
 import { OrdersRepository } from './orders.repository';
 import { MongooseModule } from '@nestjs/mongoose';
 import { OrderSchema, Order } from './schemas/order.schema';
-import { AggregateService } from './aggregate/aggregate.service';
-import { AggregateModule } from './aggregate/aggregate.module';
 
 @Module({
   imports: [
@@ -23,7 +21,6 @@ import { AggregateModule } from './aggregate/aggregate.module';
       envFilePath: './apps/orders/.env',
     }),
     DatabaseModule,
-    AggregateModule,
     MongooseModule.forFeature([
       {
         name: Order.name,
@@ -32,6 +29,6 @@ import { AggregateModule } from './aggregate/aggregate.module';
     ]),
   ],
   controllers: [OrdersController],
-  providers: [OrdersService, OrdersRepository, AggregateService],
+  providers: [OrdersService, OrdersRepository],
 })
 export class OrdersModule {}
