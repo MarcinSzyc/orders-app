@@ -18,6 +18,7 @@ import { AggregateModule } from './aggregate/aggregate.module';
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         PORT: Joi.number().required(),
+        HOST: Joi.string().required(),
       }),
       envFilePath: './apps/orders/.env',
     }),

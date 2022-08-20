@@ -2,6 +2,26 @@
 version: '2'
 
 services:
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      target: development
+    command: yarn start:dev api
+    env_file:
+      - ./apps/api/.env
+    depends_on:
+      - mongodb-primary
+      - mongodb-secondary
+      - mongodb-arbiter
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3000:3000'
+    links:
+      - orders
+
   orders:
     build:
       context: .
@@ -18,7 +38,8 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - '3000:3000'
+      - '3001:3001'
+
   mongodb-primary:
     image: docker.io/bitnami/mongodb:5.0
     environment:
