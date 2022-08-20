@@ -19,6 +19,8 @@ Simple application which acceptes orders, returns existing ones and provide thre
 
 ## Running the app with docker
 
+Change all .env.example files to .env and:
+
 ```bash
 $ docker-compose up --build -V -d
 ```
