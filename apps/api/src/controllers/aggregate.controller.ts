@@ -1,10 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
-import { AggregateService } from './aggregate.service';
-import {
-  Aggregate,
-  AggregateYesterday,
-} from '../../../aggregate/src/schemas/aggregate.schema';
+import { AggregateService } from '../services/aggregate.service';
+import { Aggregate, AggregateYesterday } from '../schemas/aggregate.schema';
 
 @Controller('aggregate')
 export class AggregateController {

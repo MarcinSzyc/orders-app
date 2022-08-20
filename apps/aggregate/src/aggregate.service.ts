@@ -1,9 +1,10 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { AggregateRepository } from '../../../aggregate/src/aggregate.repository';
+import { AggregateRepository } from './aggregate.repository';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Order } from '../schemas/order.schema';
-import { mostOftenBoughtProductsFromYesterdayQuerry } from '../../../aggregate/src/utils/utils';
+
+import { mostOftenBoughtProductsFromYesterdayQuerry } from './utils/utils';
+import { Order } from '@app/common/schemas/orders/order.schema';
 
 @Injectable()
 export class AggregateService {

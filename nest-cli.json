@@ -25,6 +25,24 @@
       "compilerOptions": {
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
+    },
+    "api": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "main",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "aggregate": {
+      "type": "application",
+      "root": "apps/aggregate",
+      "entryFile": "main",
+      "sourceRoot": "apps/aggregate/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/aggregate/tsconfig.app.json"
+      }
     }
   }
 }
