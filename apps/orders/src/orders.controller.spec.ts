@@ -44,19 +44,13 @@ describe('OrdersController', () => {
           useValue: Model,
         },
         OrdersService,
-        AggregateService,
         OrdersRepository,
-        AggregateRepository,
       ],
     }).compile();
 
     ordersController = app.get<OrdersController>(OrdersController);
-    aggregateRepository = app.get<AggregateRepository>(AggregateRepository);
     ordersRepository = app.get<OrdersRepository>(OrdersRepository);
     mockOrdersModel = app.get<Model<OrderDocument>>(getModelToken(Order.name));
-    mockAggregateModel = app.get<Model<AggregateDocument>>(
-      getModelToken(Aggregate.name),
-    );
   });
 
   it('should be defined', () => {
@@ -80,23 +74,13 @@ describe('OrdersController', () => {
     });
 
     it('should create order', async () => {
-      const findOne = jest
-        .spyOn(mockAggregateModel, 'findOne')
-        .mockResolvedValueOnce('');
-
       const createOrder = jest
         .spyOn(ordersRepository, 'create')
         .mockResolvedValueOnce(orderMock);
 
-      const createAggregate = jest
-        .spyOn(aggregateRepository, 'create')
-        .mockResolvedValue(aggregateMock);
-
       const result = await ordersController.createOrder(orderMock);
 
-      expect(findOne).toBeCalledTimes(2);
       expect(createOrder).toBeCalledTimes(1);
-      expect(createAggregate).toBeCalledTimes(2);
       expect(result).toEqual(orderMock);
     });
   });
