@@ -1,4 +1,4 @@
-import { Aggregate } from '../aggregate/schemas/aggregate.schema';
+import { Aggregate } from '../../../aggregate/src/schemas/aggregate.schema';
 
 export const getAggregateMock = (): Aggregate => {
   return {

@@ -1,17 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { CreateOrderRequest } from './dto/create-order.request';
+import { CreateOrderRequest } from '../../../libs/common/src/dto/create-order.request';
 import { OrdersRepository } from './orders.repository';
-import { AggregateService } from './aggregate/aggregate.service';
 
 @Injectable()
 export class OrdersService {
-  constructor(
-    private readonly ordersRepository: OrdersRepository,
-    private readonly aggregateService: AggregateService,
-  ) {}
+  constructor(private readonly ordersRepository: OrdersRepository) {}
 
   async createOrder(request: CreateOrderRequest) {
-    await this.aggregateService.createAggregateEntry(request);
     return await this.ordersRepository.create(request);
   }
 
