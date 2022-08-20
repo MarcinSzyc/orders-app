@@ -21,6 +21,7 @@ services:
       - '3000:3000'
     links:
       - orders
+      - aggregate
 
   orders:
     build:

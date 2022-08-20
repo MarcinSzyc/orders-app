@@ -9,7 +9,7 @@ export class AggregateController {
 
   @MessagePattern({ role: 'aggregate', cmd: 'createAggregate' })
   async createAggregate(request: CreateOrderRequest) {
-    return this.aggregateService.createAggregateEntry(request);
+    return await this.aggregateService.createAggregateEntry(request);
   }
 
   @MessagePattern({ role: 'aggregate', cmd: 'getMostProfitableProducts' })

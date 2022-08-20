@@ -6,11 +6,11 @@ export class AggregateService {
   protected readonly logger: Logger;
   constructor(
     @Inject('AGGREGATE_SERVICE')
-    private readonly aggregateClientProxy: ClientProxy,
+    private readonly aggregateClientService: ClientProxy,
   ) {}
 
   async createAggregateEntry(order) {
-    return this.aggregateClientProxy.send(
+    return this.aggregateClientService.send(
       { role: 'aggregate', cmd: 'createAggregate' },
       order,
     );
@@ -19,7 +19,7 @@ export class AggregateService {
   // Implement EP returning TOP 10 profitable products, based on their sales value
   // (quantity sales x product price). Keep in mind that pri
   async getMostProfitableProducts() {
-    return this.aggregateClientProxy.send(
+    return this.aggregateClientService.send(
       { role: 'aggregate', cmd: 'getMostProfitableProducts' },
       {},
     );
@@ -28,7 +28,7 @@ export class AggregateService {
   // Implement EP returning TOP 10 most often bought products (in terms of
   // order count, not quantity).
   async getMostOftenBoughtProducts() {
-    return this.aggregateClientProxy.send(
+    return this.aggregateClientService.send(
       { role: 'aggregate', cmd: 'getMostOftenBoughtProducts' },
       {},
     );
@@ -37,7 +37,7 @@ export class AggregateService {
   // Implement EP returning TOP 10 most often bought products (in terms of
   // order count, not quantity) from yesterday
   async getMostOftenBoughtProductsFromYesterday() {
-    return this.aggregateClientProxy.send(
+    return this.aggregateClientService.send(
       { role: 'aggregate', cmd: 'getMostOftenBoughtProductsFromYesterday' },
       {},
     );
